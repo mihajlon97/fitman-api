@@ -1,0 +1,45 @@
+[
+  {
+    "id":"1",
+    "name":"Fitman Test",
+    "address":"Stuwerstrasse 20",
+    "zip":"1020",
+    "city":"Wien",
+    "CountryId":"15",
+    "phone":"+433333333333",
+    "email":"test@fitmanapp.com",
+    "type":"Gym",
+    "logo":"https://res.cloudinary.com/werbifi/image/upload/v1537630722/WhatsApp_Image_2018-09-13_at_23.58.42.jpg",
+    "bg": "https://res.cloudinary.com/werbifi/image/upload/v1537630722/WhatsApp_Image_2018-09-13_at_23.58.42.jpg",
+    "short_desc":"Enjoy hundreads of Gyms in Austria!",
+    "long_desc":"Enjoy hundreads of Gyms in Austria!",
+    "LanguageId":"1",
+    "latitude":48.2186701,
+    "longitude":16.4005089,
+    "links": {"place_id":"ChIJEWPG3hoHbUcROOkyVU-s23g"}
+  },
+  {
+    "id":"2",
+    "name":"John Harris",
+    "address":"DC Tower",
+    "zip":"1220",
+    "city":"Vienna",
+    "CountryId":"200",
+    "phone":"+433333333",
+    "email":"johnharris@johnharris.com",
+    "type":"Gym",
+    "logo":"",
+    "bg": "",
+    "short_desc":"Best Fitness in Vienna. John Harris!",
+    "long_desc":"Long Long Long Long Long Long Long Description about John Harris fitness studios.",
+    "LanguageId":"1",
+    "latitude":43.9336769,
+    "longitude":21.3700708,
+    "links": {
+      "website":"johnharris",
+      "facebook":"johnharris",
+      "place_id":"",
+      "instagram":"johnharris"
+    }
+  }
+]
