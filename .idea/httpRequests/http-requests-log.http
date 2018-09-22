@@ -1,0 +1,27 @@
+POST http://localhost:1111/v1/user/login?username=mihajlo&password=fitmanteam
+Accept: */*
+Cache-Control: no-cache
+Authorization:
+
+<> 2018-09-22T063347.200.json
+
+###
+
+POST http://localhost:1111/user/login?username=mihajlo&password=fitmanteam
+Accept: */*
+Cache-Control: no-cache
+Authorization:
+
+<> 2018-09-22T063323.200.json
+
+###
+
+POST http://localhost:1111/user/login?username=mihajlo&password=fitmanteam
+Accept: */*
+Cache-Control: no-cache
+Authorization:
+
+<> 2018-09-22T063259.200.json
+
+###
+

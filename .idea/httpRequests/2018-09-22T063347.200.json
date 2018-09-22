@@ -1,0 +1,21 @@
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTUzNzYzNDAyNywiZXhwIjoxNTM3NzM0MDI3fQ.DsYJvuZq5a6qzQJT1E8KiuolNDdSwT5R2wgFUNCuY5c",
+  "data": {
+    "id": 1,
+    "name": "Mihajlo",
+    "email": "mihajlo@nikodijevic.me",
+    "phone": "+436764900674",
+    "gender": "M",
+    "birthday": "1997-07-17",
+    "username": "mihajlo",
+    "password": null,
+    "role": "admin",
+    "photo": "https://images.werbifi.com/user.png",
+    "reset": null,
+    "verify": {},
+    "social": {},
+    "CountryId": 15,
+    "LanguageId": 2
+  },
+  "success": true
+}
