@@ -10,9 +10,9 @@ module.exports = function (router, passport) {
 
     // TODO: Registration - register function
     // router.post('/register',    authUser,    check(['admin', 'trainer']),    UserController.register);  // C
-    router.get('/me',    authUser,    check(['admin', 'trainer', 'manager']),    UserController.get);      // R
-    router.put('/',      authUser,    check(['admin', 'trainer', 'manager']),    UserController.update);   // U
-    router.delete('/',   authUser,    check(['admin', 'trainer', 'manager']),    UserController.remove);   // D
+    router.get('/me',    authUser,    check(['admin', 'user', 'manager']),    UserController.get);      // R
+    router.put('/',      authUser,    check(['admin', 'user', 'manager']),    UserController.update);   // U
+    router.delete('/',   authUser,    check(['admin', 'user', 'manager']),    UserController.remove);   // D
 
     // TODO: Reset password function
     // router.put('/reset',         authUser,                                 UserController.changePassword);
