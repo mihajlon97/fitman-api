@@ -4,7 +4,7 @@ require('dotenv').config(); //instatiate environment variables
 CONFIG = {};
 
 CONFIG.app             = process.env.APP                   || 'dev';
-CONFIG.port            = process.env.PORT                  || '1111';
+CONFIG.port            = process.env.PORT                  || '3000';
 CONFIG.db_dialect      = process.env.DATABASE_DIALECT      || 'mysql';
 CONFIG.db_host         = process.env.DATABASE_HOST         || 'mysql';
 CONFIG.db_port         = process.env.DATABASE_PORT         || '3306';

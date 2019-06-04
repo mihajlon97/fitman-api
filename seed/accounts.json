@@ -9,7 +9,8 @@
     "username": "mihajlo",
     "password": "password",
     "desc": "Best manager ever",
-    "permissions": ["create_training", "accept_trainer"]
+    "permissions": ["create_training", "accept_trainer"],
+    "GymBranchId":"1"
   },{
     "id": "2",
     "name": "Vanja",
@@ -20,6 +21,7 @@
     "username": "vanja",
     "password": "password",
     "desc": "Best trainer ever",
-    "rate": 4.7
+    "rate": 4.7,
+    "GymId":"1"
   }
 ]

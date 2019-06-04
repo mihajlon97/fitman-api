@@ -99,7 +99,7 @@ const seed = function() {
 					// Fake accounts
 					await asyncForEach(_.range(1, 200), async () => {
 
-						const dayFactor = faker.random.number({min:1, max:15});
+						const dayFactor = faker.random.number({min:1, max:30});
 						const minFactor = faker.random.number({min:1, max:24});
 						const is_free = faker.random.boolean();
 
@@ -108,6 +108,8 @@ const seed = function() {
 							TrainerId: is_free ? null : faker.random.number({min:1, max:100}),
 							GymBranchId: faker.random.number({min:1, max:100}),
 							is_free: is_free,
+							title: faker.random.boolean() ? 'Cardio Training' : faker.random.boolean() ? 'Stretching Training' : 'Power Training',
+							className: is_free ? 'event-green' : faker.random.boolean() ? 'event-default' : 'event-red',
 							ManagerId: "1",
 							start: (new Date(y, m, d + dayFactor, minFactor, 0)).getTime(),
 							end:   (new Date(y, m, d + dayFactor, minFactor + 3, 0)).getTime(),

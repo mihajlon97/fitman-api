@@ -10,29 +10,31 @@ module.exports = (sequelize, DataTypes) => {
         name          : { type: DataTypes.STRING(25),   allowNull: false },
         gender        : { type: DataTypes.ENUM('male', 'female', 'unknown'),    allowNull: false,  defaultValue: 'unknown' },
 	      role          : { type: DataTypes.ENUM('user', 'trainer', 'manager'),   allowNull: true,   defaultValue: 'user' },
-        username      : { type: DataTypes.STRING(25),   allowNull: false, unique: true },
-        password      : { type: DataTypes.STRING(255),  allowNull: false },
-        photo_url     : { type: DataTypes.STRING(300),  allowNull: true, defaultValue: 'https://cdn.werbifi.com/werbifi/user.png' },
-        hash          : { type: DataTypes.STRING(25),   allowNull: true },
-        is_verified   : { type: DataTypes.BOOLEAN,      allowNull: true, defaultValue: false },
+        username      : { type: DataTypes.STRING(25),    allowNull: false, unique: true },
+        password      : { type: DataTypes.STRING(255),   allowNull: false },
+        photo_url     : { type: DataTypes.STRING(300),   allowNull: true, defaultValue: 'https://cdn.werbifi.com/werbifi/user.png' },
+        hash          : { type: DataTypes.STRING(25),    allowNull: true },
+        is_verified   : { type: DataTypes.BOOLEAN,       allowNull: true, defaultValue: false },
 
 	      // Manager
-		    desc          : { type: DataTypes.STRING(255),  allowNull: true },
-		    permissions   : { type: DataTypes.JSON,  allowNull: true },
+		    desc          : { type: DataTypes.STRING(255),   allowNull: true },
+		    permissions   : { type: DataTypes.JSON,          allowNull: true },
 
 	      // Trainer
-		    rate          : { type: DataTypes.FLOAT,  allowNull: true },
+		    rate          : { type: DataTypes.FLOAT,         allowNull: true },
 
 	      // User role
 		    interest      : { type: DataTypes.STRING(255),   allowNull: true },
 		    favorite      : { type: DataTypes.STRING(255),   allowNull: true },
 
-	    time          : { type: DataTypes.DATE,         allowNull: true, defaultValue: sequelize.literal('CURRENT_TIMESTAMP') }
+	      time          : { type: DataTypes.DATE,          allowNull: true, defaultValue: sequelize.literal('CURRENT_TIMESTAMP') }
     },{
         timestamps : false
     });
 
-    Model.associate = function(models){};
+    Model.associate = function(models){
+	    Model.belongsTo(models.Gym_Branch);
+    };
 
     Model.beforeSave(async (account) => {
         let err;
@@ -62,8 +64,8 @@ module.exports = (sequelize, DataTypes) => {
         return this;
     };
 
-		Model.prototype.getJWT = function (expiresIn = parseInt(CONFIG.account_jwt_expiration)) {
-			return jwt.sign({ accountId:this.id }, CONFIG.jwt_encryption, {expiresIn});
+		Model.prototype.getJWT = function (expiresIn = parseInt(CONFIG.jwt_expiration)) {
+			return jwt.sign({ id:this.id, role:this.role }, CONFIG.jwt_encryption, {expiresIn});
 		};
 
     Model.prototype.toWeb = function () {
