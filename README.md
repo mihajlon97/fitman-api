@@ -21,5 +21,13 @@ Frontend Stack:    Vue.js (built in public folder of api)
  - main business use case                            - PARTIAL
  - reporting use case                                - DONE
 
+Opening localhost:3000 you will get frontend app in the view of gym manager
+"Green" events are marked as free and don't have assigned trainer which will be use later(not implemented yet)
+in trainer gui to send request for.
+if you click on empty date, you will get modal for creating new training as gym manager
+
+
+
+
 Mihajlo Nikodijevic
 01646292

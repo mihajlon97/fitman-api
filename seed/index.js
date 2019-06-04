@@ -108,7 +108,7 @@ const seed = function() {
 							TrainerId: is_free ? null : faker.random.number({min:1, max:100}),
 							GymBranchId: faker.random.number({min:1, max:100}),
 							is_free: is_free,
-							title: faker.random.boolean() ? 'Cardio Training' : faker.random.boolean() ? 'Stretching Training' : 'Power Training',
+							title: faker.random.boolean() ? 'Cardio' : faker.random.boolean() ? 'Stretching' : 'Power',
 							className: is_free ? 'event-green' : faker.random.boolean() ? 'event-default' : 'event-red',
 							ManagerId: "1",
 							start: (new Date(y, m, d + dayFactor, minFactor, 0)).getTime(),

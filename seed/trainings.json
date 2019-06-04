@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "title": "Power Training",
+    "title": "Power",
     "type": "power",
     "is_free": true,
     "TrainerId": null,
@@ -12,7 +12,7 @@
     "end": 1559167200000
   },{
     "id": "2",
-    "title": "Power Training",
+    "title": "Power",
     "type": "power",
     "is_free": true,
     "TrainerId": null,
@@ -23,7 +23,7 @@
     "end": 1559772000000
   },{
     "id": "3",
-    "title": "Cardio Training",
+    "title": "Cardio",
     "type": "cardio",
     "is_free": true,
     "TrainerId": null,
@@ -34,7 +34,7 @@
     "end": 1560290400000
   },{
     "id": "4",
-    "title": "Cardio Training",
+    "title": "Cardio",
     "type": "cardio",
     "is_free": true,
     "TrainerId": null,
@@ -45,7 +45,7 @@
     "end": 1559944800000
   },{
     "id": "6",
-    "title": "Stretching Training",
+    "title": "Stretching",
     "type": "stretching",
     "is_free": false,
     "TrainerId": "1",
@@ -56,7 +56,7 @@
     "end": 1560808800000
   },{
     "id": "7",
-    "title": "Power Training",
+    "title": "Power",
     "type": "power",
     "is_free": false,
     "TrainerId": "1",
@@ -67,7 +67,7 @@
     "end": 1561068000000
   },{
     "id": "8",
-    "title": "Cardio Training",
+    "title": "Cardio",
     "type": "cardio",
     "is_free": false,
     "TrainerId": "1",
