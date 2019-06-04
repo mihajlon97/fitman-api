@@ -1,6 +1,6 @@
 const { Users }             = require('../models');
 const { ReE, ReS, to }      = require('../services/UtilService');
-const bcrypt                = require('bcrypt');
+const bcrypt                = require('bcryptjs');
 
 const get = async function(req, res){
     let user = req.user;

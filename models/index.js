@@ -14,7 +14,8 @@ const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_
   define: {
       charset: process.env.DATABASE_CHARSET,
       collate: process.env.DATABASE_COLLATE
-  }
+  },
+	logging: console.log
 });
 
 fs
