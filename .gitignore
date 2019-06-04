@@ -3,6 +3,9 @@
 .env
 .DS_Store
 
+# Frontend directories
+frontend/
+
 # Logs
 logs
 *.log
