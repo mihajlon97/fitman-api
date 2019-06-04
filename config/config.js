@@ -4,7 +4,7 @@ require('dotenv').config(); //instatiate environment variables
 CONFIG = {};
 
 CONFIG.app          = process.env.APP                   || 'dev';
-CONFIG.port         = process.env.NOVATHON_API_PORT     || '3000';
+CONFIG.port         = process.env.PORT     || '3000';
 
 CONFIG.db_dialect   = process.env.DATABASE_DIALECT      || 'mysql';
 CONFIG.db_host      = process.env.DATABASE_HOST         || '46.101.191.211';
