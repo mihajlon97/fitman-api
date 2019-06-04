@@ -4,7 +4,7 @@ const UserController 	    = require('../../controllers/user.controller');
 
 module.exports = function (router, passport) {
     const authUser       = require('../../middleware/authUser')(passport);
-    const {check}  = require('../../middleware/custom');
+    const {check}        = require('../../middleware/custom');
 
     router.post('/login',                                                     LoginController.login);
 

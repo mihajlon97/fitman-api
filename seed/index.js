@@ -3,15 +3,25 @@ const {
 		Gym,
 		Gym_Branch,
 		Account,
+		Training,
 } = require('../models')
 
+const { asyncForEach } = require('../services/UtilService');
 const Promise = require('bluebird')
 const gyms = require('./gyms.json')
 const accounts = require('./accounts.json')
+const trainings = require('./trainings.json')
 const gym_branches = require('./gym_branches.json')
 
 let faker = require('faker');
 let _ = require('lodash');
+
+
+const today = new Date();
+const y = today.getFullYear();
+const m = today.getMonth();
+const d = today.getDate();
+
 
 const seed = function() {
 	sequelize
@@ -28,15 +38,15 @@ const seed = function() {
 					);
 
 					// Fake gyms
-					_.range(1, 200).map(async () => {
+					await asyncForEach(_.range(1, 200), async () => {
 						await Gym.create({
 							name: faker.company.companyName(),
 							email: faker.internet.email().toLowerCase(),
 							phone: '+'+(faker.phone.phoneNumberFormat().replace('-','')).replace('-',''),
 							logo: faker.image.avatar(),
-							desc: faker.lorem.words(30)
+							desc: faker.lorem.words(10)
 						})
-					})
+					});
 
 
 					// Gym Branches from file
@@ -47,14 +57,14 @@ const seed = function() {
 					);
 
 					// Fake gym branches
-					_.range(1, 400).map(async () => {
+					await asyncForEach(_.range(1, 400), async () => {
 						await Gym_Branch.create({
 							address: faker.address.streetAddress(),
 							city: faker.address.city(),
 							country: faker.address.country(),
 							GymId: faker.random.number({min:1, max:100})
 						})
-					})
+					});
 
 
 					// Accounts from file
@@ -64,7 +74,7 @@ const seed = function() {
 						})
 					);
 					// Fake accounts
-					_.range(1, 400).map(async () => {
+					await asyncForEach(_.range(1, 200), async () => {
 						await Account.create({
 							name: faker.name.findName(),
 							username: faker.internet.userName().toLowerCase(),
@@ -73,11 +83,37 @@ const seed = function() {
 							is_verified: faker.random.boolean(),
 							photo_url: faker.image.avatar(),
 							password: faker.lorem.words(3),
-							desc: faker.lorem.words(33),
+							desc: faker.lorem.words(10),
 							rate: faker.random.number(),
 							permissions: [],
 						})
-					})
+					});
+
+
+					// Accounts from file
+					await Promise.all(
+						trainings.map(async t => {
+							await Training.create(t)
+						})
+					);
+					// Fake accounts
+					await asyncForEach(_.range(1, 200), async () => {
+
+						const dayFactor = faker.random.number({min:1, max:15});
+						const minFactor = faker.random.number({min:1, max:24});
+						const is_free = faker.random.boolean();
+
+						await Training.create({
+							type: faker.random.boolean() ? 'cardio' : 'power',
+							TrainerId: is_free ? null : faker.random.number({min:1, max:100}),
+							GymBranchId: faker.random.number({min:1, max:100}),
+							is_free: is_free,
+							ManagerId: "1",
+							start: (new Date(y, m, d + dayFactor, minFactor, 0)).getTime(),
+							end:   (new Date(y, m, d + dayFactor, minFactor + 3, 0)).getTime(),
+						})
+					});
+
 				})
 		})
 };

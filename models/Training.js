@@ -2,9 +2,10 @@
 module.exports = (sequelize, DataTypes) => {
   let Model = sequelize.define('Training', {
       id              : { type: DataTypes.INTEGER.UNSIGNED,       primaryKey: true, autoIncrement: true,},
-      type            : { type: DataTypes.STRING(60),    allowNull: true },
-      is_free         : { type: DataTypes.BOOLEAN,       allowNull: true },
-      time            : { type: DataTypes.DATE,          allowNull: true, defaultValue: sequelize.literal('CURRENT_TIMESTAMP') }
+      type            : { type: DataTypes.STRING(60),             allowNull: true },
+      is_free         : { type: DataTypes.BOOLEAN,                allowNull: true },
+      start           : { type: DataTypes.STRING(60),             allowNull: true },
+      end             : { type: DataTypes.STRING(60),             allowNull: true }
   },{
       timestamps : false
   });

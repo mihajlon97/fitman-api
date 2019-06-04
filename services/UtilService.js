@@ -42,3 +42,15 @@ module.exports.TE = function(err_message, log){
 
     throw new Error(err_message);
 };
+
+/**
+ * Normal array.forEach method from js is not synchronous
+ * This function make "callback" run for each element in array synchronously
+ * @param array
+ * @param callback
+ */
+module.exports.asyncForEach = async function (array, callback) {
+	for (let index = 0; index < array.length; index++) {
+		await callback(array[index], index, array);
+	}
+};

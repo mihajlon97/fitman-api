@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "type": "power",
+    "is_free": true,
+    "TrainerId": null,
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1559080800000,
+    "end": 1559167200000
+  },{
+    "id": "2",
+    "type": "power",
+    "is_free": true,
+    "TrainerId": null,
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1559685600000,
+    "end": 1559772000000
+  },{
+    "id": "3",
+    "type": "cardio",
+    "is_free": true,
+    "TrainerId": null,
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1560204000000,
+    "end": 1560290400000
+  },{
+    "id": "4",
+    "type": "cardio",
+    "is_free": true,
+    "TrainerId": null,
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1559858400000,
+    "end": 1559944800000
+  },{
+    "id": "6",
+    "type": "stretching",
+    "is_free": false,
+    "TrainerId": "1",
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1560722400000,
+    "end": 1560808800000
+  },{
+    "id": "7",
+    "type": "power",
+    "is_free": false,
+    "TrainerId": "1",
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1560981600000,
+    "end": 1561068000000
+  },{
+    "id": "8",
+    "type": "cardio",
+    "is_free": false,
+    "TrainerId": "1",
+    "GymBranchId": "1",
+    "ManagerId": "1",
+    "start": 1560636000000,
+    "end": 1560722400000
+  }
+]
