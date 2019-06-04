@@ -8,7 +8,7 @@
 
 ## Description
 Milestone 2 - IMSE
-Application Stack: Node.js, Express, Mysql, MongoDB(for M3)
+Application Stack: Node.js, Express, Sequelize - ORM for Node.js(as Hibernate for Java) Mysql, MongoDB(for M3)
 Frontend Stack:    Vue.js (built in public folder of api)
 
 2.1 Infrastructure
