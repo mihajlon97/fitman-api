@@ -43,7 +43,10 @@ models.sequelize.authenticate().then(() => {
 });
 if(CONFIG.app==='dev'){
     // models.sequelize.sync();
-    models.sequelize.sync({ force: true }); //deletes all tables then recreates them useful for testing and development purposes
+    models.sequelize.sync({ force: true }).then(async () => {
+    	await require('./seed').seed();
+    	console.log("Seed done");
+    })
 }
 
 // CORS

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1",
+    "name": "Mihajlo",
+    "gender": "male",
+    "role": "manager",
+    "is_verified": true,
+    "photo_url": "https://cdn.werbifi.com/werbifi/user.png",
+    "username": "mihajlo",
+    "password": "password",
+    "desc": "Best manager ever",
+    "permissions": ["create_training", "accept_trainer"]
+  },{
+    "id": "2",
+    "name": "Vanja",
+    "gender": "male",
+    "role": "trainer",
+    "is_verified": true,
+    "photo_url": "https://cdn.werbifi.com/werbifi/user.png",
+    "username": "vanja",
+    "password": "password",
+    "desc": "Best trainer ever",
+    "rate": 4.7
+  }
+]

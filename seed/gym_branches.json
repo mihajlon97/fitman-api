@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "address": "Stuwerstrasse 22 1020",
+    "city": "Vienna",
+    "country": "Austria",
+    "GymId": "1"
+  },
+  {
+    "id": "2",
+    "address": "Währingerstrasse 29 1090",
+    "city": "Vienna",
+    "country": "Austria",
+    "GymId": "1"
+  }
+]

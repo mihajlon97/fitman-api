@@ -15,14 +15,26 @@ module.exports = (sequelize, DataTypes) => {
         photo_url     : { type: DataTypes.STRING(300),  allowNull: true, defaultValue: 'https://cdn.werbifi.com/werbifi/user.png' },
         hash          : { type: DataTypes.STRING(25),   allowNull: true },
         is_verified   : { type: DataTypes.BOOLEAN,      allowNull: true, defaultValue: false },
-        time          : { type: DataTypes.DATE,         allowNull: true, defaultValue: sequelize.literal('CURRENT_TIMESTAMP') }
+
+	      // Manager
+		    desc          : { type: DataTypes.STRING(255),  allowNull: true },
+		    permissions   : { type: DataTypes.JSON,  allowNull: true },
+
+	      // Trainer
+		    rate          : { type: DataTypes.FLOAT,  allowNull: true },
+
+	      // User role
+		    interest      : { type: DataTypes.STRING(255),   allowNull: true },
+		    favorite      : { type: DataTypes.STRING(255),   allowNull: true },
+
+	    time          : { type: DataTypes.DATE,         allowNull: true, defaultValue: sequelize.literal('CURRENT_TIMESTAMP') }
     },{
         timestamps : false
     });
 
     Model.associate = function(models){};
 
-    Model.beforeSave(async (account, options) => {
+    Model.beforeSave(async (account) => {
         let err;
         if (account.changed('password')){
             let salt, hash;
@@ -57,29 +69,6 @@ module.exports = (sequelize, DataTypes) => {
     Model.prototype.toWeb = function () {
         let json = this.toJSON();
         return json;
-    };
-
-    Model.prototype.getByEmail = async function (email) {
-        return sequelize.findOne({
-            include: [{model: models.Users, where: {email:email}}]
-        });
-    };
-
-    Model.prototype.getByUsername = async function (username) {
-        return sequelize.findOne({
-            where: { username: username }
-        });
-    };
-
-    Model.moreThanOneAccountWithUserId = async function (userId) {
-        return sequelize.query(`SELECT count(*) as number_of_users FROM Accounts AS Accounts WHERE :userId IS NOT NULL AND Accounts.UserId = :userId`, { model: this,replacements: {userId:userId}, type: sequelize.QueryTypes.SELECT})
-            .then(result => {
-                return parseInt(result[0].dataValues.number_of_users) >= 1;
-            })
-            .catch(err => {
-                console.log(err);
-                TE(err)
-            })
     };
 
     return Model;
