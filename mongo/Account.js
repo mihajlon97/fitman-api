@@ -3,7 +3,7 @@ const jwt                    = require('jsonwebtoken');
 const CONFIG                 = require('../config/config');
 const {TE, to}               = require('../services/UtilService');
 const {GymBranchSchema}      = require('./GymBranch');
-let mongoose = require('mongoose');
+const mongoose               = require('mongoose');
 
 let schema = new mongoose.Schema({
 	name          : { type: String },
@@ -31,8 +31,8 @@ let schema = new mongoose.Schema({
 	GymBranch     : { type: GymBranchSchema },
 
 	// Follow Model pre-joined
-	following     : { type: this },
-	followers     : { type: this },
+	following     : { type: [this] },
+	followers     : { type: [this] },
 });
 
 /**

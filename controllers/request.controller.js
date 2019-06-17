@@ -16,27 +16,9 @@ const migrate = async function(req, res){
 	if (err) return ReE(res, err);
 	console.log("Migrate function called!!!");
 
-
 	let [errMongo, result] = await to(Gyms.insertMany(gyms));
 	if (errMongo) return ReE(res, err);
 
 	return ReS(res, {message: "Successfully migrated data", result});
 };
 module.exports.migrate = migrate;
-
-
-/**
- const migrate = async function(req, res){
-	let [err, gyms] = await to(Gym.findAll({raw:true}));
-	if (err) return ReE(res, err);
-	console.log("Migrate function called!!!");
-
-	await asyncForEach(gyms, async function (gym) {
-		let [errMongo] = await to(Gyms.create(gym));
-		if (errMongo) return ReE(res, err);
-	});
-
-	return ReS(res, {message: "Successfully migrated data"});
-};
- module.exports.migrate = migrate;
- */

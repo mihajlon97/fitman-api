@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 let schema = new mongoose.Schema({
 	address          : { type: String },

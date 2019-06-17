@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+const mongoose               = require('mongoose');
 const {GymBranchSchema}      = require('./GymBranch');
 
 let schema = new mongoose.Schema({
