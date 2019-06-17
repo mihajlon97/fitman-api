@@ -15,7 +15,10 @@ const login = async function(req, res){
     if(!body.password) return ReE('Please enter a password to login');
 
     [err, user] = await to(Account.findOne({where: where}));
-    if(err) return ReE(res, 'Find user error');
+    if(err) {
+    	console.log(err);
+    	return ReE(res, 'Find user error');
+    }
     else if(!user) return ReE(res, 'User not registered');
 
     [err] = await to(user.comparePassword(body.password));

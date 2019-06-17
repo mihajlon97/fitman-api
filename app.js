@@ -26,12 +26,19 @@ app.use(passport.initialize());
 // Connect to MongoDB
 mongoose
 	.connect(
-		'mongodb://mongo:27017/docker-node-mongo',
+		'mongodb://mongo:27017/fitman',
 		{ useNewUrlParser: true }
 	)
 	.then(() => console.log('MongoDB Connected'))
 	.catch(err => console.log(err));
 
+const accounts = require('./seed/accounts');
+// Mongo Model
+const {Accounts} = require('./mongo/Account');
+Accounts.create(accounts[0], function (err, res) {
+	if (err) return console.log(err);
+	else console.log('Saved Account');
+});
 
 //DATABASE
 const models = require("./models");
@@ -44,8 +51,8 @@ models.sequelize.authenticate().then(() => {
 if(CONFIG.app==='dev'){
     // models.sequelize.sync();
     models.sequelize.sync({ force: true }).then(async () => {
-    	await require('./seed').seed();
-    	console.log("Seed done");
+     	await require('./seed').seed();
+     	console.log("Seed done");
     })
 }
 

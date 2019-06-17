@@ -26,7 +26,10 @@ module.exports = function (passport) {
         // Do not require authentication for login and register routes
         if(req.url !== "/login" && req.url !== "/register"){
             passport.authenticate('user', (err, user) => {
-                if (err) return ReE(res, 'You do not have access to this resource!');
+                if (err) {
+                	console.log(err);
+                	return ReE(res, 'ACCESS_DENIED');
+                }
                 else {
                     req.companyId = user.companyId;
                     req.user = user;

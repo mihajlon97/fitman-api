@@ -7,10 +7,10 @@ const {TE, to}       = require('../services/UtilService');
 module.exports = (sequelize, DataTypes) => {
     let Model = sequelize.define('Account', {
         id            : { type: DataTypes.INTEGER.UNSIGNED,      primaryKey: true, autoIncrement: true,},
-        name          : { type: DataTypes.STRING(25),   allowNull: false },
+        name          : { type: DataTypes.STRING(55),   allowNull: false },
         gender        : { type: DataTypes.ENUM('male', 'female', 'unknown'),    allowNull: false,  defaultValue: 'unknown' },
 	      role          : { type: DataTypes.ENUM('user', 'trainer', 'manager'),   allowNull: true,   defaultValue: 'user' },
-        username      : { type: DataTypes.STRING(25),    allowNull: false, unique: true },
+        username      : { type: DataTypes.STRING(55),    allowNull: false, unique: true },
         password      : { type: DataTypes.STRING(255),   allowNull: false },
         photo_url     : { type: DataTypes.STRING(300),   allowNull: true, defaultValue: 'https://cdn.werbifi.com/werbifi/user.png' },
         hash          : { type: DataTypes.STRING(25),    allowNull: true },
