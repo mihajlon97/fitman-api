@@ -32,14 +32,6 @@ mongoose
 	.then(() => console.log('MongoDB Connected'))
 	.catch(err => console.log(err));
 
-const accounts = require('./seed/accounts');
-// Mongo Model
-const {Accounts} = require('./mongo/Account');
-Accounts.create(accounts[0], function (err, res) {
-	if (err) return console.log(err);
-	else console.log('Saved Account');
-});
-
 //DATABASE
 const models = require("./models");
 models.sequelize.authenticate().then(() => {

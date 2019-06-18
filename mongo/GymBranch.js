@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let schema = new mongoose.Schema({
-	_id              : { type: Number },
+	_id              : { type: Number, index: true },
 	address          : { type: String },
 	city             : { type: String },
 	country          : { type: String },

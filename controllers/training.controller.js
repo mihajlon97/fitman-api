@@ -6,7 +6,16 @@ const { Trainings }            = require('../mongo/Training');
  *  Create Training
  */
 const create = async function(req, res){
-	let [err, training] = await to(Training.create(req.body));
+	// SQL
+	// let [err, training] = await to(Training.create(req.body));
+
+	// MongoDB
+	let [errCount, count] = await to(Trainings.count());
+	if(errCount) return ReE(res, errCount);
+
+	req.body._id = count + 2;
+
+	let [err, training] = await to(Trainings.create(req.body));
 	if(err) return ReE(res, err);
 	return ReS(res, { training });
 };

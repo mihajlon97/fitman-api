@@ -4,7 +4,7 @@ const { GymBranchSchema }      = require('./GymBranch');
 const { RequestSchema }        = require('./Request');
 
 let schema = new mongoose.Schema({
-	_id              : { type: Number },
+	_id              : { type: Number, index: true },
 	type             : { type: String },
 	title            : { type: String,     default: 'Training' },
 	className        : { type: String,     default: 'event-green' },
@@ -15,7 +15,7 @@ let schema = new mongoose.Schema({
 	manager          : { type: AccountSchema },
 	place            : { type: GymBranchSchema },
 	requests         : { type: [RequestSchema] },
-}, { _id: false });
+}, { _id: false, shardkey: { _id: 1 } });
 
 module.exports.TrainingSchema = schema;
 module.exports.Trainings = mongoose.model('Trainings', schema);

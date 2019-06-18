@@ -2,7 +2,7 @@ const mongoose             = require('mongoose');
 const { AccountSchema }    = require('./Account');
 
 let schema = new mongoose.Schema({
-	_id              : { type: Number },
+	_id              : { type: Number, index: true  },
 	title            : { type: String },
 	text             : { type: String },
 	media_url        : { type: String },

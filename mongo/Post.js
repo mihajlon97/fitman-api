@@ -2,7 +2,7 @@ const mongoose             = require('mongoose');
 const { AccountSchema }    = require('./Account');
 
 let schema = new mongoose.Schema({
-	_id              : { type: Number },
+	_id              : { type: Number, index: true  },
 	title            : { type: String },
 	text             : { type: String },
 	media_url        : { type: String },
@@ -10,7 +10,7 @@ let schema = new mongoose.Schema({
 	field            : { type: String },
 	time             : { type: Date,    default: Date.now },
 	account          : { type: AccountSchema },
-}, { _id: false });
+}, { _id: false, shardkey: { _id: 1 } });
 
 module.exports.PostSchema = schema;
 module.exports.Posts = mongoose.model('Posts', schema);

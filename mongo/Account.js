@@ -30,11 +30,9 @@ let schema = new mongoose.Schema({
 	time          : { type: Date, default: Date.now },
 
 	GymBranch     : { type: GymBranchSchema },
-
-	// Follow Model pre-joined
 	following     : { type: [this] },
 	followers     : { type: [this] },
-}, { _id: false });
+}, { _id: false, shardkey: { username: 1 } });
 
 /**
  * Before save middleware
