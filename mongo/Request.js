@@ -2,6 +2,7 @@ const mongoose             = require('mongoose');
 const { AccountSchema }    = require('./Account');
 
 let schema = new mongoose.Schema({
+	_id              : { type: Number },
 	title            : { type: String },
 	text             : { type: String },
 	media_url        : { type: String },
@@ -11,7 +12,7 @@ let schema = new mongoose.Schema({
 	end              : { type: String },
 	trainer          : { type: AccountSchema },
 	manager          : { type: AccountSchema },
-});
+}, { _id: false });
 
 module.exports.RequestSchema = schema;
 module.exports.Requests = mongoose.model('Requests', schema);

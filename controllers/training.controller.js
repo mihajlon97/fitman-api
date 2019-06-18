@@ -1,5 +1,6 @@
 const { Training, Account }    = require('../models');
 const { ReE, ReS, to }         = require('../services/UtilService');
+const { Trainings }            = require('../mongo/Training');
 
 /**
  *  Create Training
@@ -35,10 +36,17 @@ module.exports.remove = remove;
  *  Get all Trainings from GymBranchId
  */
 const getAll = async function(req, res){
+	/*
+	// SQL
 	let where = (req.query.GymBranchId !== undefined) ? { where: { GymBranchId: req.query.GymBranchId } } : {};
 	let [err, trainings] = await to(Training.findAll({ where: where,
 		include: [{ model: Account, as: 'trainer', association: 'Trainer' }, { model: Account, as: 'manager', association: 'Manager' }]
 	}));
+	*/
+
+	// MongoDB
+	let where = (req.query.GymBranchId !== undefined) ? { where: { 'place._id': req.query.GymBranchId } } : {};
+	let [err, trainings] = await to(Trainings.find(where.where));
 	if(err) return ReE(res, err);
 	return ReS(res, {trainings});
 };

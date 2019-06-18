@@ -6,10 +6,11 @@ const {GymBranchSchema}      = require('./GymBranch');
 const mongoose               = require('mongoose');
 
 let schema = new mongoose.Schema({
+	_id           : { type: Number },
 	name          : { type: String },
 	gender        : { type: String, enum: ['male', 'female', 'unknown'],  default: 'unknown' },
 	role          : { type: String, enum: ['user', 'trainer', 'manager'], default: 'user' },
-	username      : { type: String, index: { unique: true } },
+	username      : { type: String, index: { unique: false } },
 	password      : { type: String },
 	photo_url     : { type: String,  default: 'https://cdn.werbifi.com/werbifi/user.png' },
 	hash          : { type: String },
@@ -33,7 +34,7 @@ let schema = new mongoose.Schema({
 	// Follow Model pre-joined
 	following     : { type: [this] },
 	followers     : { type: [this] },
-});
+}, { _id: false });
 
 /**
  * Before save middleware
