@@ -27,7 +27,7 @@ in trainer gui to send request for.
 if you click on empty date, you will get modal for creating new training as gym manager
 
 
-
+M3 - Milestone 3 report in M3_01646292.pdf file :)
 
 Mihajlo Nikodijevic
 01646292
