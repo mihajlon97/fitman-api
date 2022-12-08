@@ -14,7 +14,7 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "dotenv": "^4.0.0",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
