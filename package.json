@@ -16,7 +16,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.3",
     "faker": "^4.1.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.2.7",
     "morgan": "~1.9.0",
